@@ -64,4 +64,15 @@ class TestLineProessing:
         assert len(lines) == 1
         assert len(lines[0].tokens) == 0
 
+    def test_some_lines(self):
+        source = StringSource(
+            "test_some_lines",
+            ["first line",
+             "second line"]
+        )
+        lines = list(source.lines)
+        assert len(lines) == 2
+        assert lines[1].tokens[1].text == "line"
+        assert lines[1].tokens[1].pos == 7
+
 
